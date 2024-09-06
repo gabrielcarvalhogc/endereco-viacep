@@ -1,0 +1,11 @@
+<form>
+    @for (item of infoList; track $index) {
+        <app-primary-input
+            [inputName]="this.item.name"
+            [placeholder]="this.item.placeholder"
+            [id]="this.item.name"
+            [label]="this.item.name"
+        ></app-primary-input>
+    }
+    <button>Enviar</button>
+</form>
