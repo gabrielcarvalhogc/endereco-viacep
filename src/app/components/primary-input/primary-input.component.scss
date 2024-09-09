@@ -1,0 +1,35 @@
+@import "../../styles/variables.scss";
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    label {
+        color: $white;
+        font-size: 18px;
+        font-weight: 700;
+        padding-bottom: 5px;
+        text-transform: uppercase;
+    }
+
+    input {
+        background-color: $light-blue;
+        border-radius: 8px;
+        border: none;
+        color: $white;
+        font-size: 14px;
+        font-weight: 500;
+        height: 50px;
+        margin-bottom: 28px;
+        padding-left: 8px;
+        width: 400px;
+    }
+}
+
+@media (max-width: 499px) {
+    .input-wrapper {
+        input {
+            width: 280px;
+        }
+    }
+}

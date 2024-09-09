@@ -1,0 +1,54 @@
+@import "../../styles/variables.scss";
+
+form {
+    align-items: center;
+    background-color: $secondary-color;
+    border-radius: 26px;
+    box-shadow: 0 0 15px 2px #0000007e;
+    display: flex;
+    flex-direction: column;
+    height: 650px;
+    justify-content: center;
+    width: 550px;
+
+    button {
+        background-color: $orange;
+        border: none;
+        border-radius: 8px;
+        color: black;
+        cursor: pointer;
+        font-weight: 700;
+        height: 40px;
+        text-transform: uppercase;
+        width: 180px;
+    }
+
+    button:hover {
+        box-shadow: 0 0 10px 2px $orange;
+    }
+}
+
+@media (min-width:900px) and (max-width: 1260px)  {
+    form {
+        height: 650px;
+        width: 450px;
+    }
+}
+
+@media (min-width:500px) and (max-width: 950px) {
+    form {
+        z-index: 1;
+        position: relative;
+        height: 800px;
+        width: 450px;
+    }
+}
+
+@media (max-width: 499px) {
+    form {
+        z-index: 1;
+        position: relative;
+        height: 650px;
+        width: 330px;
+    }
+}
