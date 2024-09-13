@@ -1,0 +1,33 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <app-primary-input
+            inputName="CEP"
+            placeholder="EX: 01001000"
+            label="CEP"
+            id="cep"
+            formControlName="cep"
+            (change)="buscarEndereco()"
+    ></app-primary-input>
+    @if (cep?.invalid && (cep?.dirty || cep?.touched)) {
+        @if (cep?.hasError('required')) {
+            <small>O campo CEP é obrigatório</small>
+        } @else if (cep?.hasError('minlength') || cep?.hasError('maxlength')) {
+            <small>CEP deve ter 8 caracteres</small>
+        }
+    }
+
+    @for (item of infoList; track $index) {
+        <app-primary-input
+            [inputName]="item.name"
+            [placeholder]="item.placeholder"
+            [id]="item.name"
+            [label]="item.name"
+            [formControlName]="item.name"
+        ></app-primary-input>
+        @if (form.get(item.name)?.invalid && (form.get(item.name)?.dirty || form.get(item.name)?.touched)) {
+            @if (form.get(item.name)?.hasError('required')) {
+                <small>O campo {{item.name}} é obrigatório</small>
+            }
+        }
+    }
+    <button type="submit" [disabled]="form.invalid">Enviar</button>
+</form>
