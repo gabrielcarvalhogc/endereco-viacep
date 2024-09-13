@@ -2,6 +2,7 @@ import { Component, forwardRef } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PrimaryInputComponent } from "../primary-input/primary-input.component";
 import { EnderecoService } from '../../services/endereco.service';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-form-component',
@@ -20,7 +21,7 @@ export class FormComponent {
     {name: "uf",placeholder: "SP"}
   ];
 
-  constructor(private enderecoService: EnderecoService) {
+  constructor(private enderecoService: EnderecoService, private router: Router) {
     this.form = new FormGroup({
       cep: new FormControl('', [
         Validators.required,
@@ -54,9 +55,7 @@ export class FormComponent {
 
   onSubmit() {
     if (this.form.valid) {
-      console.log('Formulário enviado com sucesso!', this.form.value);
-    } else {
-      console.log('O formulário possui erros.');
+      this.router.navigate(['/confirmacao']);
     }
   }
 
